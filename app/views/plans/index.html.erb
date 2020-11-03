@@ -1,0 +1,9 @@
+
+<%= link_to 'プラン作成', new_plan_path %>
+
+<p>プラン一覧</p>
+<% @plan.each do |plan| %>
+    <div class="post">
+        プラン：<%= link_to plan.id, plan_path(plan.id) %>
+    </div>
+<% end %>

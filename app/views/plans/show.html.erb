@@ -1,0 +1,83 @@
+<h1>シミュレーション結果</h1>
+<h2>プラン<%= @plan.id%></h2>
+
+<%= link_to 'トップへ', root_path %>
+<%= link_to '編集する', edit_plan_path(@plan.id) %>
+<%= link_to '削除する', plan_path(@plan.id), method: :delete %>
+
+<div class="result">
+    <table class="aaa">
+      <tbody>
+        <tr>
+          <th class="bbb">小学生：学校</th>
+          <td class="ccc" id="bc"><%= ElementarySchool.find(@plan.elementary_school_id).fee %></td>
+        </tr>
+        <tr>
+          <th class="ddd">小学生：習い事</th>
+          <td class="eee" id="de"><%= ElementaryActivity.find(@plan.elementary_activity_id).fee %></td>
+        </tr>
+        <tr>
+          <th class="fff">小学生：習い事（期間）</th>
+          <td class="ggg" id="fg"><%= PeriodSix.find(@plan.period_six_id).name %></td>
+        </tr>
+        <tr>
+          <th class="hhh">小学生：総合計</th>
+          <%# <td class="iii" id="hi">¥<%= ElementaryActivity.find(@plan.elementary_activity_id).fee * PeriodSix.find(@plan.period_six_id).name%></td>
+          <td class="iii" id="hi"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="jjj">
+      <tbody>
+        <tr>
+          <th class="kkk">中学生：学校</th>
+          <td class="lll" id="kl"><%= JuniorHighSchool.find(@plan.junior_high_school_id).fee %></td>
+        </tr>
+        <tr>
+          <th class="mmm">中学生：習い事</th>
+          <td class="nnn" id="mn"><%= JuniorHighActivity.find(@plan.junior_high_activity_id).fee %></td>
+        </tr>
+        <tr>
+          <th class="ooo">中学生：習い事（期間）</th>
+          <td class="ppp" id="op"><%= PeriodThree.find(@plan.period_three_id).name %></td>
+        </tr>
+        <tr>
+          <th class="qqq">中学生：総合計</th>
+          <td class="rrr" id="qr"></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+<canvas id="myBarChart" width="120" height="40"> 
+<%# <canvas id="myBarChart" style="position: relative; height:100; width:100"></canvas> %>
+  
+
+<table>
+<caption>寿司ネタ人気ランキング</caption>
+<colgroup span="1" style="width:30px; background-color:#FF9900;">
+<colgroup>
+<col span="2" style="width:100px; background-color:#FF3300;">
+<col span="1" style="width:250px; background-color:#FFCC00;">
+</colgroup>
+<thead>
+<tr><th>順位</th><th>名前</th><th>人気度</th><th>備考</th></tr>
+</thead>
+<tbody>
+<tr><th>１位</th><td>トロ</td><td>☆☆☆☆☆</td><td>やはり何といってもトロ！</td></tr>
+<tr><th>２位</th><td>サーモン</td><td>☆☆☆☆</td><td>ほど良い脂の乗りで女性に人気。</td></tr>
+<tr><th>３位</th><td>うに</td><td>☆☆☆</td><td>軍艦もので唯一ランクイン。</td></tr>
+<tr><th>４位</th><td>えび</td><td>☆☆☆</td><td>プリプリした歯ごたえが魅力。</td></tr>
+<tr><th>５位</th><td>イカ</td><td>☆☆</td><td>やはり外せない甘みのあるイカ。</td></tr>
+</tbody>
+<tfoot>
+<tr><td></td><td>※投票対象の寿司ネタは管理者が選定</td><td>※投票ポイントを集計して星（☆）に換算</td><td>※投票者のコメントから抜粋</td></tr>
+</tfoot>
+</table>
+
+
+  
+
+

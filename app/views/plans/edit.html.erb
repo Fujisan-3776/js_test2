@@ -1,0 +1,48 @@
+<h1>プラン編集</h1>
+<h2>プラン<%= @plan.id%></h2>
+
+<div class = 'calculation'>
+  <%= form_with(model: @plan, local: true) do |f| %>
+
+    <div class = 'elementary'>
+      <h2>小学生</h2>
+      <div class = 'elementary_school'>
+        <p>・学校（6年）</p>
+        <%= f.collection_select(:elementary_school_id, ElementarySchool.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+      <div class = 'elementary_activity'>
+        <p>・習い事（対象）</p>
+        <%= f.collection_select(:elementary_activity_id, ElementaryActivity.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+      <div class = 'elementary_activity_period'>
+        <p>・習い事（期間）</p>
+        <%= f.collection_select(:period_six_id, PeriodSix.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+    </div>
+
+    <div class = 'junior_high'>
+      <h2>中学生</h2>
+      <div class = 'junior_high_school'>
+        <p>・学校（３年）</p>
+        <%= f.collection_select(:junior_high_school_id, JuniorHighSchool.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+      <div class = 'junior_high__activity'>
+        <p>・習い事</p>
+        <%= f.collection_select(:junior_high_activity_id, JuniorHighActivity.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+      <div class = 'junior_high_activity_period'>
+        <p>・習い事（期間）</p>
+        <%= f.collection_select(:period_three_id, PeriodThree.all, :id, :name, {}, {class:"hoge", id:"fuga"}) %> 
+      </div>
+    </div>
+
+  <div class = "save">
+      <%= f.submit "更新" ,class:"sell-btn" %>
+      <%# <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+
+
+
+  <% end %>
+</div>
+
